@@ -1,7 +1,7 @@
 <?php
 
 // Replace with your actual MySQL database credentials
-$hostname = '%';
+$hostname = '127.0.0.1';
 $username = 'ja';
 $password = 'password';
 $database = 'main';
