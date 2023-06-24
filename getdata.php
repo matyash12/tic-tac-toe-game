@@ -17,7 +17,7 @@ if ($mysqli->connect_errno) {
 $id = $_GET['id'];
 
  // Select all records from the "game" table
- $selectQuery = "SELECT * FROM game WHERE id=".$id;
+ $selectQuery = "SELECT * FROM game WHERE id='".$id."'";
  $result = $mysqli->query($selectQuery);
 
  // Check if any records were found
