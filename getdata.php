@@ -10,7 +10,11 @@ $database = 'main';
 $mysqli = new mysqli($hostname, $username, $password, $database);
 
 if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+    echo json_encode(array(
+        'status' => 400,
+        'description' => 'FAiled to connect to mysql',
+        'data' => ''
+        ));
     exit();
 }
 
@@ -26,7 +30,15 @@ $id = $_GET['id'];
      $row = $result->fetch_assoc();
 
 
-     echo $row;
+     echo json_encode(array(
+        'status' => 200,
+        'description' => '',
+        'data' => $row
+        ));
  } else {
-     echo "Can't find the game!";
+     echo json_encode(array(
+        'status' => 400,
+        'description' => 'Cant find the game',
+        'data' => ''
+        ));
  }
