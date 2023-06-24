@@ -2,7 +2,7 @@
 
 // Replace with your actual MySQL database credentials
 $hostname = 'localhost';
-$username = 'root';
+$username = 'ja';
 $password = 'password';
 $database = 'main';
 
