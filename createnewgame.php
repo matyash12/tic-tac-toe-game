@@ -1,23 +1,16 @@
 <?php
 require 'mysqlconnection.php';
-
+require 'writejson.php';
 
 // Insert a new record into the "game" table
 $insertQuery = "INSERT INTO game (one, two, three, four, five, six, seven, eight, nine)
                VALUES (0, 0, 0, 0, 0, 0, 0, 0, 0)";
 if ($mysqli->query($insertQuery) === TRUE) {
-    $id  = $mysqli->insert_id;
-    echo json_encode(array(
-        'status' => 200,
-        'description' => '',
-        'gameid' => $id
-        ));
+    $id = $mysqli->insert_id;
+    WriteJson(200, '', array('gameid' => $id));
 } else {
-    echo json_encode(array(
-        'status' => 400,
-        'description' => 'Failed to insert into mysql',
-        'data' => ''
-        ));
+    WriteJson(400,'Failed to insert into MYSQL',null);
+
 }
 
 $mysqli->close();

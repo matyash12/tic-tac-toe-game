@@ -20,6 +20,8 @@ function makeMove($board)
 
 
 require 'mysqlconnection.php';
+require 'writejson.php';
+
 
 $id = $_GET['id'];
 
@@ -33,12 +35,7 @@ if ($result->num_rows == 1) {
     $row = $result->fetch_assoc();
     $move = makeMove($row);
     if ($move == false) {
-        echo json_encode(
-            array(
-                'status' => 400,
-                'description' => 'Cant make a move'
-            )
-        );
+        WriteJson(400,'Cant make a move',null);
     }
 
     //player always play 1 computer is 2
@@ -46,30 +43,13 @@ if ($result->num_rows == 1) {
 
 
     if ($mysqli->query($sql) === TRUE) {
-        echo json_encode(
-            array(
-                'status' => 200,
-                'description' => '',
-                'data' => ''
-            )
-        );
+        WriteJson(200,'',null);
     } else {
-        echo json_encode(
-            array(
-                'status' => 400,
-                'description' => 'Failed to make a move',
-                'data' => ''
-            )
-        );
+        WriteJson(400,'Failed to make a move',null);
     }
 } else {
-    echo json_encode(
-        array(
-            'status' => 400,
-            'description' => 'Cant find the game',
-            'data' => ''
-        )
-    );
+    WriteJson(400,'Cant find the game',null);
+
 }
 
 $mysqli->close();
