@@ -39,11 +39,6 @@ $sql = "UPDATE game SET ".$whattochange." = 1 WHERE id = ".$id;
 
 if ($mysqli->query($sql) === TRUE) {
     WriteJson(200,'',null);
-    echo json_encode(array(
-        'status' => 200,
-        'description' => '',
-        'data' => ''
-        ));
 } else {
     WriteJson(400,'Failed to make a move',null);
 }
