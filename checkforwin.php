@@ -42,10 +42,10 @@ if ($result->num_rows == 1) {
 
     $row = $result->fetch_assoc();
     
-    if (checkWin($row,1) == true){
+    if (checkWin($row,"1") == true){
         WriteJson(200,'',array('Win'=>1));
     }
-    elseif (checkWin($row,2) == true){
+    elseif (checkWin($row,"2") == true){
         WriteJson(200,'',array('Win'=>2));
     }else{
         WriteJson(200,'',array('Win'=>0));
