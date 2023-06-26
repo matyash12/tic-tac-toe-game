@@ -43,5 +43,5 @@ if ($mysqli->query($sql) === TRUE) {
     WriteJson(400,'Failed to make a move',null);
 }
 
-
+require "computermove.php";
 

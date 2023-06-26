@@ -43,7 +43,7 @@ if ($result->num_rows == 1) {
 
 
     if ($mysqli->query($sql) === TRUE) {
-        WriteJson(200,'',null);
+        //WriteJson(200,'',null);
     } else {
         WriteJson(400,'Failed to make a move',null);
     }
@@ -51,5 +51,3 @@ if ($result->num_rows == 1) {
     WriteJson(400,'Cant find the game',null);
 
 }
-
-$mysqli->close();
