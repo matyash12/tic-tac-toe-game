@@ -1,10 +1,8 @@
-Status codes
-200 - ok
-400 - not ok
+Tic Tac Toe game server
 
-description (if status code == 400)
-what happened... 
+This is backend is for [Java frontend](https://github.com/matyash12/tic-tac-toe-maven)
 
-data
-
-
+Requirements
+PHP
+Mysql 
+Server (Docker)
